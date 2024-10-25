@@ -1,4 +1,4 @@
-package com.example.demo.vo;
+package com.example.demo.vo.userVO;
 
 import com.example.demo.entity.User;
 import lombok.AllArgsConstructor;
@@ -8,7 +8,7 @@ import java.util.List;
 
 @Data
 @AllArgsConstructor
-public class UserResponseVO {
+public class UserResponseListVO {
 
     private int code;
 

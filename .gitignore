@@ -11,6 +11,7 @@
 /out/
 /*.ipr
 /*.iws
+.vscode/
 
 # Ignore logs
 *.log
