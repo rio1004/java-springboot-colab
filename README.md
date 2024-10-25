@@ -1,18 +1,45 @@
 # java-springboot-colab
 
 
-## env config
--add application.yml -src/main/resources/application-production.yml
+## How To Run dev Mode
 
-## DataBase
-```yml
-type: mysql
-dbname: sql12740074
-host: https://www.freesqldatabase.com/
+### requirements
+- maven:3.9.0
+- openjdk:17-jdk-slim
+- mysql (use in docker optional)
+- docker optional
+
+
+
+#### option 1 mvn with docker support
+```
+- run mysql
+docker run --name mysql-container \
+  -e MYSQL_ROOT_PASSWORD=defaultpassword \
+  -e MYSQL_DATABASE=sql12740074 \
+  -p 3306:3306 \
+  -d mysql:latest
+
+- run springboot
+mvn clean install
+mvn spring-boot:run
 ```
 
-## server
 
+
+# REPO TECH STACK
+### Data Base
+- type: mysql
+- dbname: sql12740074
+- host: https://www.freesqldatabase.com/
+- migration_tool: https://docs.liquibase.com/home.html 
+
+
+### Server
+- location: Render 
+- location_url: https://dashboard.render.com/web/srv-csctgrdds78s73be8pg0
+- url_docs: https://java-springboot-colab-lgwc.onrender.com/v3/api-docs
+- Swagger: https://java-springboot-colab-lgwc.onrender.com/swagger-ui.html
 
 ## Contributors
 

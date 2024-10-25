@@ -48,7 +48,6 @@ gradlew.bat
 /*.properties
 /*.yml
 /*.yaml
-application.yml
 
 # Ignore compiled files
 *.class

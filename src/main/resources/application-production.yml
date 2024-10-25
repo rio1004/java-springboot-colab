@@ -1,9 +1,0 @@
-server:
-  port: 1023
-spring:
-  application:
-    name: 'demo'
-  datasource:
-    url: '${DB_URL:jdbc:mysql://localhost:3306/dbname}'
-    username: '${DB_USERNAME:root}'
-    password: '${DB_PASSWORD:password}'

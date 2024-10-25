@@ -1,0 +1,24 @@
+server:
+  port: 1023
+
+spring:
+  application:
+    name: "demo"
+
+  datasource:
+    url: "${DB_URL:jdbc:mysql://localhost:3306/sql12740074}"
+    username: "${DB_USERNAME:root}"
+    password: "${DB_PASSWORD:defaultpassword}"
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  hikari:
+    validation-timeout: 5000 # 5 seconds
+    connection-timeout: 30000 # 30 seconds
+    maximum-pool-size: 5 # Maximum 5 connections to mysql Data base
+    connection-test-query: "SELECT 1" # Validation query
+
+  liquibase:
+    enabled: true
+    drop-first: false
+    change-log: classpath:/db/changelog/liquibase-changelog.yml
+    # default-schema: public
