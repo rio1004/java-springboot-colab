@@ -5,13 +5,11 @@ import com.example.demo.repository.UserRepository;
 import com.example.demo.service.UserService;
 import com.example.demo.vo.userVO.UserResponseFindVO;
 import com.example.demo.vo.userVO.UserResponseListVO;
-import com.example.demo.vo.userVO.UserResponsePostVO;
+import com.example.demo.vo.userVO.UserResponseVO;
 import jakarta.annotation.Resource;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import javax.swing.text.html.Option;
 import java.util.List;
 import java.util.Optional;
 
@@ -28,9 +26,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserResponsePostVO postUser(User user) {
+    public UserResponseVO postUser(User user) {
         userRepository.save(user);
-        return new UserResponsePostVO(HttpStatus.CREATED.value(), HttpStatus.CREATED.getReasonPhrase());
+        return new UserResponseVO(HttpStatus.CREATED.value(), HttpStatus.CREATED.getReasonPhrase());
     }
 
     @Override
@@ -41,7 +39,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserResponsePostVO updateUser(User user) {
+    public UserResponseVO updateUser(User user) {
         Optional<User> existingUser = userRepository.findById(user.getId());
         return existingUser.map(item -> {
             item.setUsername(user.getUsername());
@@ -49,15 +47,15 @@ public class UserServiceImpl implements UserService {
             item.setLastname(user.getLastname());
             item.setAddress(user.getAddress());
             userRepository.save(item);
-            return new UserResponsePostVO(HttpStatus.OK.value(), "Updated Successfully");
-        }).orElse(new UserResponsePostVO(HttpStatus.OK.value(), "Update Fail"));
+            return new UserResponseVO(HttpStatus.OK.value(), "Updated Successfully");
+        }).orElse(new UserResponseVO(HttpStatus.OK.value(), "Update Fail"));
     }
 
     @Override
-    public UserResponsePostVO deleteUser(Integer id) {
+    public UserResponseVO deleteUser(Integer id) {
         return userRepository.findById(id).map(item -> {
             userRepository.deleteById(item.getId());
-            return new UserResponsePostVO(HttpStatus.OK.value(), "Deleted Successfully");
-        }).orElse(new UserResponsePostVO(HttpStatus.NOT_FOUND.value(), "User Not Found"));
+            return new UserResponseVO(HttpStatus.OK.value(), "Deleted Successfully");
+        }).orElse(new UserResponseVO(HttpStatus.NOT_FOUND.value(), "User Not Found"));
     }
 }

@@ -5,10 +5,9 @@ import com.example.demo.entity.User;
 import com.example.demo.service.UserService;
 import com.example.demo.vo.userVO.UserResponseFindVO;
 import com.example.demo.vo.userVO.UserResponseListVO;
-import com.example.demo.vo.userVO.UserResponsePostVO;
+import com.example.demo.vo.userVO.UserResponseVO;
 import jakarta.annotation.Resource;
 import jakarta.validation.Valid;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -25,7 +24,7 @@ public class UserController {
     }
 
     @PostMapping
-    public UserResponsePostVO postUser(@Valid @RequestBody User user) {
+    public UserResponseVO postUser(@Valid @RequestBody User user) {
         return userService.postUser(user);
     }
     //
@@ -35,12 +34,12 @@ public class UserController {
     }
 
     @PutMapping
-    public  UserResponsePostVO updateUser(@RequestBody User user){
+    public UserResponseVO updateUser(@RequestBody User user){
         return userService.updateUser(user);
     }
 
     @DeleteMapping("/{id}")
-    public UserResponsePostVO deleteUser(@PathVariable("id") Integer id){
+    public UserResponseVO deleteUser(@PathVariable("id") Integer id){
         return  userService.deleteUser(id);
     }
 }

@@ -6,7 +6,7 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor
-public class UserResponsePostVO {
+public class UserResponseVO {
     private int code;
     private String message;
 }
