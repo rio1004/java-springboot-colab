@@ -1,0 +1,12 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: techgeeknext
+
+  - include:
+      file: /changeset-001.sql
+      relativeToChangelogFile: true
+
+  # - include:
+  #     file: /changeset-002.sql
+  #     relativeToChangelogFile: true

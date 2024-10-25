@@ -1,0 +1,5 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/product/changelog-master.yml
+  - include:
+      file: db/changelog/user/changelog-master.yml
