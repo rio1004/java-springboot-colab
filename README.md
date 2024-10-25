@@ -27,23 +27,19 @@ mvn spring-boot:run
 
 
 
-# REPO INFO
+# REPO TECH STACK
 ### Data Base
-```yml
-type: mysql
-dbname: sql12740074
-host: https://www.freesqldatabase.com/
-```
+- type: mysql
+- dbname: sql12740074
+- host: https://www.freesqldatabase.com/
+- migration_tool: https://docs.liquibase.com/home.html 
+
 
 ### Server
-```yml
-location: Render 
-location_url: https://dashboard.render.com/web/srv-csctgrdds78s73be8pg0
-url_docs: https://java-springboot-colab-lgwc.onrender.com/v3/api-docs
-url_docs: https://java-springboot-colab-lgwc.onrender.com/swagger-ui.html
-swager: TBA
-```
-
+- location: Render 
+- location_url: https://dashboard.render.com/web/srv-csctgrdds78s73be8pg0
+- url_docs: https://java-springboot-colab-lgwc.onrender.com/v3/api-docs
+- Swagger: https://java-springboot-colab-lgwc.onrender.com/swagger-ui.html
 
 ## Contributors
 
