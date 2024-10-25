@@ -20,5 +20,6 @@ spring:
   liquibase:
     enabled: true
     drop-first: false
-    change-log: classpath:/db/changelog/liquibase-changelog.yml
+    change-log: classpath:/db/changelog/db.changelog-master.yml
     # default-schema: public
+    # rollbackFile: classpath:/db/changelog/rollback.sql  
