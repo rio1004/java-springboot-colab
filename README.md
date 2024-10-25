@@ -39,7 +39,8 @@ host: https://www.freesqldatabase.com/
 ```yml
 location: Render 
 location_url: https://dashboard.render.com/web/srv-csctgrdds78s73be8pg0
-url_test: https://java-springboot-colab-lgwc.onrender.com/v1/product
+url_docs: https://java-springboot-colab-lgwc.onrender.com/v3/api-docs
+url_docs: https://java-springboot-colab-lgwc.onrender.com/swagger-ui.html
 swager: TBA
 ```
 
