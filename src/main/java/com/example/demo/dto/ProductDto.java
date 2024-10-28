@@ -5,8 +5,6 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 @Data
-public class ProductDto {
+public class ProductDto extends PaginationRequestDto{
     private String name;
-    private Integer page = 1;
-    private Integer pageSize = 10;
 }
