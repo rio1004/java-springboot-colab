@@ -1,5 +1,6 @@
 package com.example.demo.service.impl;
 
+import com.example.demo.dto.UserRequestDto;
 import com.example.demo.entity.User;
 import com.example.demo.repository.UserRepository;
 import com.example.demo.service.UserService;
@@ -7,8 +8,13 @@ import com.example.demo.vo.userVO.UserResponseFindVO;
 import com.example.demo.vo.userVO.UserResponseListVO;
 import com.example.demo.vo.userVO.UserResponseVO;
 import jakarta.annotation.Resource;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import java.util.List;
 import java.util.Optional;
@@ -20,9 +26,18 @@ public class UserServiceImpl implements UserService {
     private UserRepository userRepository;
 
     @Override
-    public UserResponseListVO getUsers() {
-        List<User> list = userRepository.findAll();
-        return new UserResponseListVO(HttpStatus.OK.value(), "success", list, list.size());
+    public UserResponseListVO getUsers(UserRequestDto userRequestDto) {
+        int page = userRequestDto.getPage();
+        int pageSize = userRequestDto.getPageSize();
+
+        Pageable pageable = PageRequest.of(page - 1, pageSize, Sort.by("id").descending());
+        Page<User> list;
+        if (StringUtils.hasText(userRequestDto.getUsername()) || StringUtils.hasText(userRequestDto.getFirstname()) || StringUtils.hasText(userRequestDto.getLastname())) {
+            list = userRepository.findAllByUsernameOrFirstnameOrLastnameOrAddress(userRequestDto.getUsername(), userRequestDto.getFirstname(), userRequestDto.getLastname(), userRequestDto.getAddress(), pageable);
+        } else {
+            list = userRepository.findAll(pageable);
+        }
+        return new UserResponseListVO(HttpStatus.OK.value(), "success", list.getContent(), list.getNumberOfElements());
     }
 
     @Override

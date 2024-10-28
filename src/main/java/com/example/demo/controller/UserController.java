@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 
+import com.example.demo.dto.UserRequestDto;
 import com.example.demo.entity.User;
 import com.example.demo.service.UserService;
 import com.example.demo.vo.userVO.UserResponseFindVO;
@@ -19,15 +20,15 @@ public class UserController {
     private UserService userService;
 
     @GetMapping
-    public UserResponseListVO getUsers() {
-        return userService.getUsers();
+    public UserResponseListVO getUsers(UserRequestDto userRequestDto) {
+        return userService.getUsers(userRequestDto);
     }
 
     @PostMapping
     public UserResponseVO postUser(@Valid @RequestBody User user) {
         return userService.postUser(user);
     }
-    //
+
     @GetMapping("/{id}")
     public UserResponseFindVO findUser(@PathVariable("id") Integer id) {
         return userService.findUser(id);

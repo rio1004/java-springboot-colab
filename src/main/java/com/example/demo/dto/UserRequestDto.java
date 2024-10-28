@@ -1,8 +1,11 @@
 package com.example.demo.dto;
 
+import lombok.Data;
 
-public class UserDto extends PaginationRequestDto {
+@Data
+public class UserRequestDto extends PaginationRequestDto {
     private String username;
     private String firstname;
     private String lastname;
+    private String address;
 }
