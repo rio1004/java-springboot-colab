@@ -49,12 +49,7 @@ logging:
         type: ERROR       # Hide SQL parameter binding
       apache: ERROR       # Apache commons
     
-    # Database related
-    com:
-      zaxxer:
-        hikari: ERROR     # Connection pool
-    
-    # Other tools
+      # Other tools
     springfox: ERROR
     org.mongodb: ERROR
     
@@ -65,3 +60,5 @@ logging:
         services: INFO       # Business logic
         security: INFO       # Security related
         repository: INFO     # Database operations
+        zaxxer:
+        hikari: ERROR     # Connection pool
