@@ -30,8 +30,11 @@ mvn spring-boot:run
 # REPO TECH STACK
 ### Data Base
 - type: mysql
+- user: root
+- passwword: defaultpassword
 - dbname: sql12740074
 - host: https://www.freesqldatabase.com/
+- [Database Migration Documentation](src/main/resources/db/README.md)
 - migration_tool: https://docs.liquibase.com/home.html 
 
 
