@@ -49,16 +49,14 @@ logging:
         type: ERROR       # Hide SQL parameter binding
       apache: ERROR       # Apache commons
     
-      # Other tools
-    springfox: ERROR
-    org.mongodb: ERROR
+    # Third-party tools and libraries
+    com.zaxxer.hikari: ERROR     # Database connection pool
+    springfox: ERROR             # API documentation
+    org.mongodb: ERROR           # MongoDB operations
     
     # Your application logs - Keep verbose for debugging
-    com:
-      yourcompany:
-        controllers: INFO    # API endpoints
-        services: INFO       # Business logic
-        security: INFO       # Security related
-        repository: INFO     # Database operations
-        zaxxer:
-        hikari: ERROR     # Connection pool
+    com.yourcompany:
+      controllers: INFO    # API endpoints
+      services: INFO       # Business logic
+      security: INFO       # Security related
+      repository: INFO     # Database operations
