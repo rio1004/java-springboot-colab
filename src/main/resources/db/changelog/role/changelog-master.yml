@@ -1,0 +1,3 @@
+databaseChangeLog:
+  - include:
+      file: /add-user-foreign-key.sql
