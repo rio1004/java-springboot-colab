@@ -1,3 +1,4 @@
 databaseChangeLog:
   - include:
-      file: /add-user-foreign-key.sql
+      file: /001-add-user-foreign-key.sql
+      relativeToChangelogFile: true
