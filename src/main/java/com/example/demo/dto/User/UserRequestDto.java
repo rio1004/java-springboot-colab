@@ -1,4 +1,6 @@
-package com.example.demo.dto;
+package com.example.demo.dto.User;
+
+import com.example.demo.dto.PaginationRequestDto;
 
 import lombok.Data;
 
