@@ -37,11 +37,14 @@ public class UserServiceImpl implements UserService {
         } else {
             list = userRepository.findAll(pageable);
         }
+        System.out.println("LIST TO: " + list.getContent());
         return new UserResponseListVO(HttpStatus.OK.value(), "success", list.getContent(), list.getNumberOfElements());
     }
 
+    
     @Override
     public UserResponseVO postUser(User user) {
+        System.out.println("USER TO: " + user);
         userRepository.save(user);
         return new UserResponseVO(HttpStatus.CREATED.value(), HttpStatus.CREATED.getReasonPhrase());
     }

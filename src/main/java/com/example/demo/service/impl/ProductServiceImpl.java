@@ -35,7 +35,6 @@ public class ProductServiceImpl implements ProductService {
         Page<Product> list = StringUtils.hasText(productDto.getName())
             ? productRepository.findAllByNameContainingIgnoreCase(productDto.getName(), pageable)
             : productRepository.findAll(pageable);
-
         return ResponseEntity.status(HttpStatus.OK.value()).body(new PageResponseVO(HttpStatus.OK.value(), "success" ,list.getContent(), list.getNumberOfElements()));
     }
 

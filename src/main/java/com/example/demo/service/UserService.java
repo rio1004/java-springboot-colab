@@ -5,7 +5,6 @@ import com.example.demo.entity.User;
 import com.example.demo.vo.userVO.UserResponseFindVO;
 import com.example.demo.vo.userVO.UserResponseListVO;
 import com.example.demo.vo.userVO.UserResponseVO;
-import org.springframework.stereotype.Service;
 
 public interface UserService {
     UserResponseListVO getUsers(UserRequestDto userRequestDto);
