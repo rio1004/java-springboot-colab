@@ -89,19 +89,16 @@ public class UserServiceImpl implements UserService {
             item.setFirstname(user.getFirstname());
             item.setLastname(user.getLastname());
             item.setAddress(user.getAddress());
-
-            // Get role ID, either from user input or default
+            
             Integer roleId = (user.getRole() != null && user.getRole().getId() != null) 
                 ? user.getRole().getId() 
-                : 2; // default role ID
+                : 2; 
 
-            // Check if role exists in database
             Optional<Role> role = roleRepository.findById(roleId);
             if (!role.isPresent()) {
                 return new UserResponseVO(HttpStatus.NOT_FOUND.value(), "Role not found");
             }
 
-            // Set the verified role
             item.setRole(role.get());
             userRepository.save(item);
             return new UserResponseVO(HttpStatus.OK.value(), "Updated Successfully");
