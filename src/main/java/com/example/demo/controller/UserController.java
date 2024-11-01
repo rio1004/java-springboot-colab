@@ -1,7 +1,8 @@
 package com.example.demo.controller;
 
 
-import com.example.demo.dto.UserRequestDto;
+import com.example.demo.dto.User.UserCreateRequestDto;
+import com.example.demo.dto.User.UserRequestDto;
 import com.example.demo.entity.User;
 import com.example.demo.service.UserService;
 import com.example.demo.vo.userVO.UserResponseFindVO;
@@ -25,7 +26,7 @@ public class UserController {
     }
 
     @PostMapping
-    public UserResponseVO postUser(@Valid @RequestBody User user) {
+    public UserResponseVO postUser(@Valid @RequestBody UserCreateRequestDto user) {
         return userService.postUser(user);
     }
 
