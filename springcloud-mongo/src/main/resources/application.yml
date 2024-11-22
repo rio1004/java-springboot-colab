@@ -3,12 +3,12 @@ server:
 
 spring:
   application:
-    name: "demo"
+    name: "mongo"
 
   data:
     mongodb:
-      uri: "${DB_URI:mongodb://localhost:27017/demo}" # MongoDB URI
-      database: "${DB_DATABASE:demo}"               # MongoDB Database Name
+      uri: "${DB_URI:mongodb://localhost:27017/payment}" # MongoDB URI
+      database: "${DB_DATABASE:payment}"               # MongoDB Database Name
 
   jpa:
     open-in-view: false # Disable open-in-view for performance
