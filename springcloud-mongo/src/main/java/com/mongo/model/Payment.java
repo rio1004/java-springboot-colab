@@ -1,7 +1,8 @@
-package com.example.model;
+package com.mongo.model;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.index.Indexed;
 
 import java.time.LocalDateTime;
 
@@ -9,7 +10,10 @@ import java.time.LocalDateTime;
 public class Payment {
     @Id
     private String id;
+
+    @Indexed  // Creates an index on the 'userId' field
     private String userId;
+
     private Double amount;
     private String status;
     private LocalDateTime timestamp;

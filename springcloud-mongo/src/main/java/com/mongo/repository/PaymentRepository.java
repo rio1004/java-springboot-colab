@@ -1,4 +1,4 @@
-package com.example.repository;
+package com.mongo.repository;
 
 import com.example.model.Payment;
 import org.springframework.data.mongodb.repository.MongoRepository;

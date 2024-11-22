@@ -1,4 +1,4 @@
-package com.example.controller;
+package com.mongo.controller;
 
 import com.example.model.Payment;
 import com.example.service.PaymentService;

@@ -1,4 +1,4 @@
-package com.example.service;
+package com.mongo.service;
 
 import com.example.model.Payment;
 import com.example.repository.PaymentRepository;
