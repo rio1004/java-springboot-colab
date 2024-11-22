@@ -1,7 +1,7 @@
 package com.mongo.controller;
 
-import com.example.model.Payment;
-import com.example.service.PaymentService;
+import com.mongo.model.Payment;
+import com.mongo.service.PaymentService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

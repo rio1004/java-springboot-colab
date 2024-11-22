@@ -1,7 +1,7 @@
 package com.mongo.service;
 
-import com.example.model.Payment;
-import com.example.repository.PaymentRepository;
+import com.mongo.model.Payment;
+import com.mongo.repository.PaymentRepository;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;

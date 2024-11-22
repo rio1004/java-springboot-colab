@@ -1,0 +1,72 @@
+# Ignore Maven & Gradle build directories
+/target/
+/build/
+
+# Ignore Eclipse and IntelliJ IDEA project files
+/.idea/
+/*.iml
+/.classpath
+/.project
+/.settings/
+/out/
+/*.ipr
+/*.iws
+.vscode/
+
+# Ignore logs
+*.log
+*.log.*
+
+# Ignore temporary files
+*.tmp
+*.swp
+*.swo
+*.bak
+*.orig
+
+# Ignore OS generated files
+.DS_Store
+Thumbs.db
+
+# Ignore Maven specific files
+/logs/
+!/src/main/resources/static/**/logs/
+!/src/main/resources/static/**/log/
+.mvn/wrapper/maven-wrapper.jar
+!.mvn/wrapper/maven-wrapper.jar
+.mvn/wrapper/maven-wrapper.properties
+!.mvn/wrapper/maven-wrapper.properties
+
+# Ignore Gradle specific files
+.gradle
+.gradle/
+/gradle/
+/gradlew
+gradlew.bat
+
+# Ignore Spring Boot specific files
+/*.env
+/*.properties
+/*.yml
+/*.yaml
+
+# Ignore compiled files
+*.class
+
+# Ignore package management files
+node_modules/
+
+# Ignore IntelliJ IDEA project files
+.idea/
+*.iml
+*.iws
+.idea/modules.xml
+.idea/*.iml
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/gradle.xml
+.idea/dictionaries
+.idea/libraries
+
+# Ignore JetBrains IDE project files
+*.ipr

@@ -25,7 +25,7 @@ logging:
     root: INFO
     org.springframework: WARN
     org.hibernate: WARN
-    com.example.demo: INFO
+    com.mongo.demo: INFO
 
 springdoc:
   swagger-ui:
