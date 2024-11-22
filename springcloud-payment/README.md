@@ -10,7 +10,6 @@
 - docker optional
 
 
-
 #### option 1 mvn with docker support
 ```
 - run mysql
@@ -24,8 +23,6 @@ docker run --name mysql-container \
 mvn clean install
 mvn spring-boot:run
 ```
-
-
 
 # REPO TECH STACK
 ### Data Base

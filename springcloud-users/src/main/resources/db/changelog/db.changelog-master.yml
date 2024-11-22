@@ -1,0 +1,11 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/product/changelog-master.yml
+  - include:
+      file: db/changelog/user/changelog-master.yml
+  - include:
+      file: db/changelog/role/changelog-master.yml
+
+    # add fakedata
+  - include:
+      file: db/changelog/fakeData/sql-01.sql
