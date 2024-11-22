@@ -1,0 +1,36 @@
+server:
+  port: 1021
+
+spring:
+  application:
+    name: "demo"
+
+  data:
+    mongodb:
+      uri: "${DB_URI:mongodb://localhost:27017/demo}" # MongoDB URI
+      database: "${DB_DATABASE:demo}"               # MongoDB Database Name
+
+  jpa:
+    open-in-view: false # Disable open-in-view for performance
+  main:
+    banner-mode: console
+  output:
+    ansi:
+      enabled: always  # Enable ANSI colors
+
+logging:
+  pattern:
+    console: "%clr(%d{HH:mm:ss.SSS}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} : %m%n"
+  level:
+    root: INFO
+    org.springframework: WARN
+    org.hibernate: WARN
+    com.example.demo: INFO
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    operations-sorter: method
+    try-it-out-enabled: true
+  api-docs:
+    path: /v3/api-docs
