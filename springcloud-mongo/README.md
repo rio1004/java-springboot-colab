@@ -18,6 +18,12 @@ docker run --name mysql-container \
   -e MYSQL_DATABASE=sql12740074 \
   -p 3306:3306 \
   -d mysql:latest
+  
+- run mongoDb
+docker run --name spring-mongodb -d -p 27017:27017 \
+  -e MONGO_INITDB_ROOT_USERNAME=root \
+  -e MONGO_INITDB_ROOT_PASSWORD=defaultpassword \
+  mongo
 
 - run springboot
 mvn clean install

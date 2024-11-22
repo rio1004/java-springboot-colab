@@ -17,6 +17,7 @@ public class Payment {
 
     @Indexed  // Creates an index on the 'userId' field
     private String userId;
+    private String name;
 
     private Double amount;
     private String status;
