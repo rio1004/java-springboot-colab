@@ -1,19 +1,17 @@
 package com.mongo.controller;
 
 import com.mongo.model.Payment;
-
-import java.util.Collections;
-import java.util.List;
-import java.util.Optional;
-
+import com.mongo.service.PaymentService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import com.mongo.service.PaymentService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class PaymentController {
@@ -28,7 +26,7 @@ public class PaymentController {
 
     @GetMapping("/payments/list")
     public ResponseEntity<List<Payment>> getList() {
-        logger.info("Fetching payment with name: {}");
+        logger.info("Fetching payment method list");
         return ResponseEntity.ok(paymentService.getAllPayments());
     }
 
