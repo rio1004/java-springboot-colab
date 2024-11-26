@@ -6,6 +6,7 @@ import com.mongo.repository.PaymentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PaymentService {
@@ -17,7 +18,11 @@ public class PaymentService {
         return paymentRepository.findAll(); // Fetch all payments
     }
 
-    public List<Payment> getPaymentsByName(String name) {
-        return paymentRepository.findByName(name); // Fetch payments by name
+    public Optional<Payment> getPaymentsByName(String id) {
+        return paymentRepository.findById(id); // Fetch payments by name
+    }
+
+    public Optional<Payment> getPaymentsById(String name) {
+        return paymentRepository.findById(name); // Fetch payments by name
     }
 }
