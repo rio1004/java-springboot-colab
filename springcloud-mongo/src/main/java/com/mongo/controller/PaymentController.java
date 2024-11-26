@@ -44,7 +44,7 @@ public class PaymentController {
         String paymentName = (String) paramsBody.get("name");
 
         logger.info("Fetching payment with ID: {}", paymentName);
- 
+
         List<Payment> payments = (paymentName != null)
                 ? paymentService.getPaymentsByName(paymentName)
                 : paymentService.getAllPayments();
