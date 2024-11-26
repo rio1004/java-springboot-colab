@@ -22,7 +22,7 @@ public class PaymentService {
         return paymentRepository.findById(id); // Fetch payments by name
     }
 
-    public Optional<Payment> getPaymentsById(String name) {
-        return paymentRepository.findById(name); // Fetch payments by name
+    public Optional<Payment> getPaymentsById(String id) {
+        return paymentRepository.findById(id); // Fetch payments by name
     }
 }
