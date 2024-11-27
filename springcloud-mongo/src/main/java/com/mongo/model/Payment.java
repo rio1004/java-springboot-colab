@@ -19,7 +19,7 @@ public class Payment {
     private String id;
 
     @Indexed
-    private Optional<String> userId;
+    private String userId;
     private String type;
     private String name;
     private String date;

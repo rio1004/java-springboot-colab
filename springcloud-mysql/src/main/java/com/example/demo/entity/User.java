@@ -1,6 +1,6 @@
 package com.example.demo.entity;
 
-import jakarta.persistence.Column;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -23,11 +23,8 @@ public class User {
     private Integer id;
 
     private String username;
-
     private String firstname;
-
     private String lastname;
-
     private String address;
 
     @ManyToOne
