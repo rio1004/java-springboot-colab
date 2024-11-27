@@ -4,12 +4,14 @@ import com.mongo.dto.PaymentCreateRequestDto;
 import com.mongo.model.Payment;
 import com.mongo.repository.PaymentRepository;
 import com.mongo.service.PaymentService;
+import com.mongo.vo.ResponseVO;
 
 import jakarta.validation.Valid;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,6 +19,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -41,26 +44,39 @@ public class PaymentController {
     }
 
     @GetMapping("/payments/{id}")
-    public Optional<Payment> getPaymentById(@PathVariable String id) {
+    public ResponseEntity<ResponseVO> getPaymentById(@PathVariable String id) {
         logger.info("Fetching payment with ID: {}", id);
-        return paymentRepository.findById(id);
+
+        Optional<Payment> data = paymentRepository.findById(id);
+
+        ResponseVO response = new ResponseVO(200, "Payment created successfully!",data );
+        if (data != null){
+            return ResponseEntity.ok(response);
+        } else{
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ResponseVO(400, "Invalid payment data", null););
+        }
+        
+    }
+
+    private boolean isPaymentValid(Payment payment) {
+        return payment.getId() != null; // Example validation: check if the ID is not null
     }
 
     @PostMapping("/payments")
-    public ResponseEntity<Payment> createPayment(@Valid @RequestBody PaymentCreateRequestDto params) {
+    public ResponseEntity<ResponseVO> createPayment(@Valid @RequestBody Payment params) {
         logger.info("Creating a new payment: {}", params);
-    
-        // Map the DTO to the Payment entity
-        Payment payment = new Payment();
-        payment.setName(params.getName());
-        payment.setDate(params.getDate());
-        payment.setAmount(params.getAmount()); // Assuming the DTO has an amount field
-    
-        // Save the payment to the repository
-        Payment savedPayment = paymentRepository.save(payment);
-    
-        logger.info("Payment created successfully with ID: {}", savedPayment.getId());
-        return ResponseEntity.ok(savedPayment);
+
+        if (params.getId() != null) {
+            paymentRepository.save(params);
+            ResponseVO response = new ResponseVO(200, "Payment created successfully!", null);
+            logger.info("Payment created successfully with ID: {}", params.getId());
+            return ResponseEntity.ok(response);
+        } else {
+            // If params are null, return a 400 Bad Request with an error message
+            logger.error("Payment creation failed: invalid input (null params)");
+            ResponseVO errorResponse = new ResponseVO(400, "Invalid payment data", null);
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorResponse);
+        }
     }
 
 }
