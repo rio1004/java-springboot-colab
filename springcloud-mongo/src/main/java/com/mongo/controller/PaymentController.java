@@ -49,17 +49,9 @@ public class PaymentController {
 
         Optional<Payment> data = paymentRepository.findById(id);
 
-        ResponseVO response = new ResponseVO(200, "Payment created successfully!",data );
-        if (data != null){
-            return ResponseEntity.ok(response);
-        } else{
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ResponseVO(400, "Invalid payment data", null););
-        }
-        
-    }
+        ResponseVO response = new ResponseVO(200, "Payment created successfully!", data);
+        return ResponseEntity.ok(response);
 
-    private boolean isPaymentValid(Payment payment) {
-        return payment.getId() != null; // Example validation: check if the ID is not null
     }
 
     @PostMapping("/payments")
